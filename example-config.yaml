@@ -1,0 +1,11 @@
+# path to your OSIAM source folders
+sourcePath: /home/user/sources/osiam
+
+# amount of memory the VM should have
+memory: 3072
+
+# The port on the host that you want to use to access OSIAM
+webPort: 8080
+
+# The port on the host that you want to use to access the PostgreSQL database
+dbPort: 5432
