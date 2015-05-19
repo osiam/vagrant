@@ -17,6 +17,10 @@ mv -f /tmp/flyway.conf /opt/flyway-3.2.1/conf/flyway.conf
 chmod +x /opt/flyway-3.2.1/flyway
 ln -s /opt/flyway-3.2.1/flyway /usr/local/bin/flyway
 
+# install greenmail webapp to provide simple smtp service for the self-administration and administration
+wget --quiet http://central.maven.org/maven2/com/icegreen/greenmail-webapp/1.4.1/greenmail-webapp-1.4.1.war
+mv greenmail-webapp-1.4.1.war /var/lib/tomcat7/webapps/
+
 # download OSIAM
 wget --quiet https://github.com/osiam/distribution/releases/download/v2.1/osiam-distribution-2.1.tar.gz
 tar -xzf osiam-distribution-2.1.tar.gz
@@ -29,6 +33,14 @@ cp -r osiam-server/osiam-resource-server/configuration/* /etc/osiam
 cp -r osiam-server/osiam-auth-server/configuration/* /etc/osiam
 cp -r addon-self-administration/configuration/* /etc/osiam
 cp -r addon-administration/configuration/* /etc/osiam
+
+sed -i 's/org.osiam.mail.server.smtp.port=25/org.osiam.mail.server.smtp.port=10025/g' /etc/osiam/addon-self-administration.properties
+sed -i 's/your.smtp.server.com/localhost/g' /etc/osiam/addon-self-administration.properties
+sed -i 's/org.osiam.mail.server.username=username/org.osiam.mail.server.username=user1/g' /etc/osiam/addon-self-administration.properties
+
+sed -i 's/org.osiam.mail.server.smtp.port=25/org.osiam.mail.server.smtp.port=10025/g' /etc/osiam/addon-administration.properties
+sed -i 's/your.smtp.server.com/localhost/g' /etc/osiam/addon-administration.properties
+sed -i 's/org.osiam.mail.server.username=username/org.osiam.mail.server.username=user1/g' /etc/osiam/addon-administration.properties
 
 # configure database
 echo "local all all           trust" > /etc/postgresql/9.3/main/pg_hba.conf

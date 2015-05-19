@@ -38,6 +38,11 @@ A development environment for OSIAM based on [Vagrant](https://www.vagrantup.com
   * Docker
 
       Latest version installed by Vagrant. Required by integration tests.
+      
+  * Greenmail 1.4.1
+  
+      Simple mail server for the self-administration and administration
+      deployed in the tomcat
 
   * Maven 3.0.5
 
@@ -52,3 +57,28 @@ issue will be addressed in a future version.
 You can become root with `$ sudo ...` without needing a password. If you ever
 really need passwords for some accounts, note that the default Vagrant settings
 are still working, i.e. `root:vagrant` and `vagrant:vagrant`.
+
+## Mail server
+
+You do not need to change anything if you like to send e-mails via the
+self-administration or administration. You can get the e-mails on pop3 port
+10110. This is helpful if you like to register a user and want to activate him
+with the generated link which is sent with the e-mail. Here is an example how
+to get e-mails with telnet:
+
+Login to the greenmail server via telnet
+
+    $ telnet localhost 10110
+    
+Use the e-mail address of the user
+
+    USER e-mail address e.g. hello@osiam.org
+    PASS e-mail address e.g. hello@osiam.org
+    
+List all messages
+
+    LIST
+
+Show message with ID 1
+
+    RETR 1
