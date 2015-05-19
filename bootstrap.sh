@@ -4,7 +4,7 @@ printf "Package: *\nPin: release a=trusty-backports\nPin-Priority: 500\n" > /etc
 apt-get update -qq
 DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade -y
 DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-    unzip vim openjdk-7-jre-headless tomcat7 postgresql maven
+    unzip vim openjdk-7-jdk tomcat7 postgresql maven
 
 cd /tmp
 
