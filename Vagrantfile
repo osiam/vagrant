@@ -13,6 +13,9 @@ Vagrant.configure(2) do |config|
   config.vm.synced_folder source_path, "/media/source"
   config.vm.network :forwarded_port, :guest => 8080, :host => web_port
   config.vm.network :forwarded_port, :guest => 5432, :host => db_port
+  config.vm.network :forwarded_port, :guest => 8180, :host => 8180
+  config.vm.network :forwarded_port, :guest => 15432, :host => 15432
+  config.vm.network :forwarded_port, :guest => 13306, :host => 13306
   config.vm.provider :virtualbox do |vb|
     vb.memory = memory
     vb.cpus = 2
