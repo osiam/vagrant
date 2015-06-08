@@ -24,6 +24,6 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision :docker
   config.vm.provision :file, :source => 'flyway.conf', :destination => '/tmp/flyway.conf'
-  config.vm.provision :file, :source => 'setup_data.sql', :destination => '/tmp/setup_data.sql'
+  config.vm.provision :file, :source => 'addon-self-administration.properties', :destination => '/tmp/addon-self-administration.properties'
   config.vm.provision :shell, :path => 'bootstrap.sh'
 end
