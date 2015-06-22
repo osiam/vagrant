@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-OSIAM_VERSION=2.2
+OSIAM_VERSION=2.3
 
 printf "Package: *\nPin: release a=trusty-backports\nPin-Priority: 500\n" > /etc/apt/preferences.d/backports
 apt-get update -qq
