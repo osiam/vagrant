@@ -14,12 +14,12 @@ A development environment for OSIAM based on [Vagrant](https://www.vagrantup.com
 
 ## Installation Details
 
-  * OSIAM 2.3
+  * OSIAM 2.4
 
-      * auth-server 2.2
-      * resource-server 2.2
-      * addon-self-administration 1.6
-      * addon-administration 1.6
+      * auth-server 2.3
+      * resource-server 2.3
+      * addon-self-administration 1.7
+      * addon-administration 1.7
 
   * OpenJDK 7
 
