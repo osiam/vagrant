@@ -14,37 +14,38 @@ A development environment for OSIAM based on [Vagrant](https://www.vagrantup.com
 
 ## Installation Details
 
-  * OSIAM 2.4
+  * OSIAM current GitHub master
 
-      * auth-server 2.3
-      * resource-server 2.3
-      * addon-self-administration 1.7
-      * addon-administration 1.7
+      * [osiam](https://github.com/osiam/osiam)
+      * [addon-self-administration](https://github.com/osiam/addon-self-administration)
+      * [addon-administration](https://github.com/osiam/addon-administration)
 
-  * OpenJDK 7
-
-      Headless JRE installed
+  * OpenJDK 8
 
   * Flyway 3.2.1
 
-      Configured for installed PostgreSQL database
+      Configured for installed PostgreSQL database.
 
-  * Tomcat 7
-  * PostgreSQL Server 9.3
+  * Tomcat 8
+
+  * PostgreSQL Server 9.4
 
       Local and host authentication is set to `trust`, so you can connect from
       anywhere without using a password.
 
   * Docker
 
-      Latest version installed by Vagrant. Required by integration tests.
+      Latest version installed by Vagrant. Required for running integration
+      tests from host.
       
   * Greenmail 1.4.1
   
       Simple mail server for the self-administration and administration
-      deployed in the tomcat
+      deployed in the tomcat.
 
-  * Maven 3.0.5
+  * Maven 3.3.9
+
+  * Git
 
 ## Upgrading
 
