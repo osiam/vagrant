@@ -8,7 +8,7 @@ Vagrant.configure(2) do |config|
   web_port = configuration['webPort']
   db_port = configuration['dbPort']
 
-  config.vm.box = 'ubuntu/trusty64'
+  config.vm.box = 'debian/jessie64'
   config.vm.hostname = 'osiam-dev'
   config.vm.synced_folder source_path, "/media/source"
   config.vm.network :forwarded_port, :guest => 8080, :host => web_port
@@ -22,8 +22,16 @@ Vagrant.configure(2) do |config|
     vb.cpus = 2
   end
 
+  config.vm.provision :shell,
+                      inline: "echo 'deb http://httpredir.debian.org/debian jessie-backports main' > /etc/apt/sources.list.d/jessie-backports.list"
+
+  config.vm.provision :shell,
+                      inline: "sudo apt-get update -qq && sudo apt-get install apt-transport-https -y"
+
   config.vm.provision :docker
-  config.vm.provision :file, :source => 'flyway.conf', :destination => '/tmp/flyway.conf'
-  config.vm.provision :file, :source => 'addon-self-administration.properties', :destination => '/tmp/addon-self-administration.properties'
+
+  config.vm.provision :file, :source => 'install', :destination => '/tmp/'
+
   config.vm.provision :shell, :path => 'bootstrap.sh'
+
 end
